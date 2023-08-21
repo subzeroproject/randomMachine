@@ -246,11 +246,13 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
     justify-content: space-between;
     padding: 10px 100px 10px 20px;
 }
-@media only screen and (min-height: 1080px) {
-    .footer-style{
+.footer-style {
+    width: 100% !important; 
+}
+@media only screen and (min-height: 920px) {
+    .footer-style {
         position: absolute !important;
         bottom: 0 !important;
-        width: 100% !important;
     }
 }
 .body-style{
