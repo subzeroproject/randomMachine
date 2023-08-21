@@ -28,7 +28,9 @@
       <div class="w3-row-padding">
         <!-- Left Column -->
         <div class="w3-third">
-          <div class="w3-white w3-text-grey w3-card-4"></div>
+          <div class="w3-white w3-text-grey w3-card-4">
+            <div id="ten-countdown" class="timer"></div>
+          </div>
         </div>
 
         <!-- Right Column -->
@@ -36,11 +38,9 @@
           <div class="w3-white w3-text-grey w3-card-4">
             <div class="w3-container">
               <p>
-                <i
-                  class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"
-                  id="number"
-                ></i
-                >**
+                <i class="w3-margin-right w3-large w3-text-teal" id="number"
+                  >**</i
+                >
               </p>
             </div>
           </div>
@@ -60,7 +60,36 @@
 </html>
 <script>
   function myFunction() {
-    document.getElementById("number").innerHTML = Math.floor(Math.random() * 18) + 3;
+    document.getElementById("number").innerHTML =
+      Math.floor(Math.random() * 16) + 3;
+    countdown("ten-countdown", 10, 0);
   }
-  myFunction()
+  function countdown(elementName, minutes, seconds) {
+    var element, endTime, hours, mins, msLeft, time;
+
+    function twoDigits(n) {
+      return n <= 9 ? "0" + n : n;
+    }
+
+    function updateTimer() {
+      msLeft = endTime - +new Date();
+      if (msLeft < 1000) {
+        element.innerHTML = "Time is up!";
+      } else {
+        time = new Date(msLeft);
+        hours = time.getUTCHours();
+        mins = time.getUTCMinutes();
+        element.innerHTML =
+          (hours ? hours + ":" + twoDigits(mins) : mins) +
+          ":" +
+          twoDigits(time.getUTCSeconds());
+        setTimeout(updateTimer, time.getUTCMilliseconds() + 500);
+      }
+    }
+
+    element = document.getElementById(elementName);
+    endTime = +new Date() + 1000 * (60 * minutes + seconds) + 500;
+    updateTimer();
+  }
+  myFunction();
 </script>
