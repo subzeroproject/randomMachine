@@ -252,5 +252,5 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
     width: 100% !important;
 }
 .body-style{
-    min-height: 1200px;
+    min-height: 1200px !important;
 }
