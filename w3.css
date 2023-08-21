@@ -240,3 +240,9 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
     font-weight: bold;
     text-decoration: none;
 }
+.title-and-timer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 100px 10px 20px;
+}
