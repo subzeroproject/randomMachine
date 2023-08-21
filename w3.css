@@ -249,7 +249,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .footer-style {
     width: 100% !important; 
 }
-@media only screen and (min-height: 920px) {
+@media only screen and (min-height: 725px) {
     .footer-style {
         position: absolute !important;
         bottom: 0 !important;
