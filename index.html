@@ -30,6 +30,13 @@
         <div class="w3-third">
           <div class="w3-white w3-text-grey w3-card-4">
             <div id="ten-countdown" class="timer"></div>
+            <div> 3 to 18 </div>
+          </div>
+        </div>
+        <div class="w3-third">
+          <div class="w3-white w3-text-grey w3-card-4">
+            <div id="ten-countdown" class="timer"></div>
+            <div> 3 dices </div>
           </div>
         </div>
 
@@ -39,6 +46,23 @@
             <div class="w3-container">
               <p>
                 <i class="w3-margin-right w3-large w3-text-teal" id="number"
+                  >**</i
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="w3-twothird">
+          <div class="w3-white w3-text-grey w3-card-4">
+            <div class="w3-container">
+              <p>
+                <i class="w3-margin-right w3-large w3-text-teal" id="dice1"
+                  >**</i
+                >,
+                <i class="w3-margin-right w3-large w3-text-teal" id="dice2"
+                  >**</i
+                >,
+                <i class="w3-margin-right w3-large w3-text-teal" id="dice3"
                   >**</i
                 >
               </p>
@@ -59,11 +83,26 @@
   </body>
 </html>
 <script>
-  function myFunction() {
+  function Total3to18NumberFunction() {
     document.getElementById("number").innerHTML =
       Math.floor(Math.random() * 16) + 3;
-    countdown("ten-countdown", 1, 0);
   }
+
+  function ThreeDicesFunction() {
+    document.getElementById("dice1").innerHTML =
+      Math.floor(Math.random() * 6) + 1;
+    document.getElementById("dice2").innerHTML =
+      Math.floor(Math.random() * 6) + 1;
+    document.getElementById("dice3").innerHTML =
+      Math.floor(Math.random() * 6) + 1;
+  }
+
+  function start() {
+    Total3to18NumberFunction();
+    ThreeDicesFunction();
+    countdown("ten-countdown", 10, 0);
+  }
+
   function countdown(elementName, minutes, seconds) {
     var element, endTime, hours, mins, msLeft, time;
 
@@ -74,9 +113,7 @@
     function updateTimer() {
       msLeft = endTime - +new Date();
       if (msLeft < 1000) {
-        document.getElementById("number").innerHTML =
-          Math.floor(Math.random() * 16) + 3;
-        countdown("ten-countdown", 1, 0);
+        start()
       } else {
         time = new Date(msLeft);
         hours = time.getUTCHours();
@@ -93,5 +130,7 @@
     endTime = +new Date() + 1000 * (60 * minutes + seconds) + 500;
     updateTimer();
   }
-  myFunction();
+
+  // execute
+  start();
 </script>
