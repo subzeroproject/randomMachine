@@ -62,7 +62,7 @@
   function myFunction() {
     document.getElementById("number").innerHTML =
       Math.floor(Math.random() * 16) + 3;
-    countdown("ten-countdown", 10, 0);
+    countdown("ten-countdown", 1, 0);
   }
   function countdown(elementName, minutes, seconds) {
     var element, endTime, hours, mins, msLeft, time;
@@ -74,7 +74,9 @@
     function updateTimer() {
       msLeft = endTime - +new Date();
       if (msLeft < 1000) {
-        element.innerHTML = "Time is up!";
+        document.getElementById("number").innerHTML =
+          Math.floor(Math.random() * 16) + 3;
+        countdown("ten-countdown", 1, 0);
       } else {
         time = new Date(msLeft);
         hours = time.getUTCHours();
